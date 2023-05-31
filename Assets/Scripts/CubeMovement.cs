@@ -4,6 +4,8 @@ public class CubeMovement : MonoBehaviour
 {
     // Put Rigidbody to this parameter in unity
     public Rigidbody rb;
+    public float forwardForceZ = 2000f;
+    public float sideForce = 500f;
 
     // Update is called once per frame
     // Use FixedUpdate when dealing with physics
@@ -11,7 +13,17 @@ public class CubeMovement : MonoBehaviour
     {
         // deltaTime makes sure update intervals are the same across
         //all systems
-        //          x, y, z
-        rb.AddForce(0, 0, 2000 * Time.deltaTime);
+        // add force in x, y, z direction
+        rb.AddForce(0, 0, forwardForceZ * Time.deltaTime);
+
+        if ( Input.GetKey("d") )
+        {
+            rb.AddForce(sideForce * Time.deltaTime, 0, 0);
+        }
+
+        if ( Input.GetKey("a") )
+        {
+            rb.AddForce(-sideForce * Time.deltaTime, 0, 0);
+        }
     }
 }

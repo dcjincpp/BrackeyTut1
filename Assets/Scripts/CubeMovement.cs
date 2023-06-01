@@ -25,5 +25,11 @@ public class CubeMovement : MonoBehaviour
         {
             rb.AddForce(-sideForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
+
+        if ( Input.GetKey("space") && CubeCollision.grounded == true)
+        {
+            rb.AddForce(0, 10, 0, ForceMode.VelocityChange);
+            CubeCollision.grounded = false;
+        }
     }
 }

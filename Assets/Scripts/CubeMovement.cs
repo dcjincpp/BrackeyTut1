@@ -18,12 +18,12 @@ public class CubeMovement : MonoBehaviour
 
         if ( Input.GetKey("d") )
         {
-            rb.AddForce(sideForce * Time.deltaTime, 0, 0);
+            rb.AddForce(sideForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
 
         if ( Input.GetKey("a") )
         {
-            rb.AddForce(-sideForce * Time.deltaTime, 0, 0);
+            rb.AddForce(-sideForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
     }
 }

@@ -10,6 +10,7 @@ public class CubeCollision : MonoBehaviour
         if(collisionInfo.collider.tag == "Obstacle")
         {
             movement.enabled = false;
+            FindObjectOfType<GameManager>().EndGame();
         }
 
         if(collisionInfo.collider.tag == "Ground")

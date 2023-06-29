@@ -33,5 +33,10 @@ public class CubeMovement : MonoBehaviour
             rb.AddForce(0, 20, 0, ForceMode.VelocityChange);
             CubeCollision.grounded = false;
         }
+
+        if (rb.position.y < -1f)
+        {
+            FindObjectOfType<GameManager>().EndGame();
+        }
     }
 }
